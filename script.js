@@ -1,3 +1,9 @@
+
+let humanScore = 0;
+let computerScore = 0;
+
+
+
 // First we need to put our choice in an array
 const compChoice = ["Rock", "Paper", "Scissors"];
 
