@@ -20,11 +20,11 @@ console.log(getComputerChoice());
 
 
 // Human choice
-const humanChoice = prompt("Please Enter Rock, Paper Scissor: ");
+const humanChoice = prompt("Please Enter Rock, Paper, Scissor: ");
+
 
 // Function to get human choice
 function getHumanChoice() {
   return humanChoice;
 }
-
 console.log(getHumanChoice());
