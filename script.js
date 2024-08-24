@@ -21,22 +21,12 @@ console.log(getHumanChoice());
 
 // This function will enable the game play a single round
 function playRound(humanChoice, compChoice) {
-  if (humanSelection !== "Paper" && humanSelection !== "Rock" && humanSelection !== "Scissors") {
-    console.log("Enter a valid Name 🤬")
-  }
-  if (humanSelection === computerSelection) {
+  if (humanChoice === compChoice) {
     console.log("Draw 🤝");
   } else if (
-    (humanSelection === "Paper" && computerSelection === "Rock")) {
-    console.log("You Win");
-    humanScore++;
-  } else if (
-    (humanSelection === "Rock" && computerSelection === "Scissors")
-  ) {
-    console.log("You Win");
-    humanScore++;
-  } else if (
-    (humanSelection === "Scissors" && computerSelection === "Paper")
+    (humanChoice === "Paper" && compChoice === "Rock") ||
+    (humanChoice === "Rock" && compChoice === "Scissors") ||
+    (humanChoice === "Scissors" && compChoice === "Paper")
   ) {
     console.log("You Win");
     humanScore++;
@@ -45,6 +35,7 @@ function playRound(humanChoice, compChoice) {
     computerScore++;
   }
 }
+
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
-playRound(humanChoice, compChoice);
+playRound(humanSelection, computerSelection);
