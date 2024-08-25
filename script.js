@@ -9,7 +9,7 @@ function getComputerChoice() {
   return choices[randomIndex];
 }
 
-function determineWinner(humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice) {
   if (humanChoice === computerChoice) {
     return "It's a tie!";
   } else if (
@@ -27,7 +27,7 @@ function determineWinner(humanChoice, computerChoice) {
 function playGame() {
   let humanChoice = getHumanChoice();
   let computerChoice = getComputerChoice();
-  let result = determineWinner(humanChoice, computerChoice);
+  let result = playRound(humanChoice, computerChoice);
   console.log(`You chose: ${humanChoice}`);
   console.log(`Computer chose: ${computerChoice}`);
   console.log(result);
