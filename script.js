@@ -1,32 +1,36 @@
-let humanScore = 0;
-let computerScore = 0;
-
-
-
-// Human choice
-const humanChoice = prompt("Please Enter Rock, Paper, Scissor: ");
-
-// Function to get human choice
 function getHumanChoice() {
-  return console.log("You chose:", humanChoice.toUpperCase());
+  let choice = prompt("Please Enter Your Choice: ");
+  return choice.toUpperCase();
 }
-getHumanChoice();
 
-
-
-// First we need to put our choice in an array
-const choices = ["Rock", "Paper", "Scissors"];
-
-// Then here we generate our random number. The reason we multiply by two is because we want the the value 0 1 2, since in array we start in 0
-// Math.round - rounds the generated random number to a whole number because Math.random generated a number between 0 - 1
-const randomChoice = Math.round(Math.random() * 2);
-const compChoice = choices[randomChoice];
-
-// This function now will randomly return one of the choices in compChoice array
 function getComputerChoice() {
-  return console.log("Computer chose:", compChoice.toUpperCase());
-
+  let choices = ["ROCK", "PAPER", "SCISSORS"];
+  let randomIndex = Math.floor(Math.random() * choices.length);
+  return choices[randomIndex];
 }
-getComputerChoice();
 
-// This function will enable the game play a single round
+function determineWinner(humanChoice, computerChoice) {
+  if (humanChoice === computerChoice) {
+    return "It's a tie!";
+  } else if (
+    (humanChoice === "ROCK" && computerChoice === "SCISSORS") ||
+    (humanChoice === "PAPER" && computerChoice === "ROCK") ||
+    (humanChoice === "SCISSORS" && computerChoice === "PAPER")
+  ) {
+    return "You win!";
+  } else {
+    return "Computer wins!";
+  }
+}
+
+
+function playGame() {
+  let humanChoice = getHumanChoice();
+  let computerChoice = getComputerChoice();
+  let result = determineWinner(humanChoice, computerChoice);
+  console.log(`You chose: ${humanChoice}`);
+  console.log(`Computer chose: ${computerChoice}`);
+  console.log(result);
+}
+
+playGame();
